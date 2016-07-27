@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour {
         //FindClosestNPC().GetComponent<NPC>().Interact();
         if(FindClosestNPC()!= null)
         {
-            Fungus.Flowchart.BroadcastFungusMessage("Hello");
+            Fungus.Flowchart.BroadcastFungusMessage(FindClosestNPC().gameObject.name);
         }
        
     }
@@ -99,16 +99,14 @@ public class PlayerController : MonoBehaviour {
             } 
             else
             {
-                if (Vector3.Distance(myTransform.position, i.transform.position) > closestDistance)
+                if (Vector3.Distance(myTransform.position, i.transform.position) < closestDistance)
                 {
                     closestObject = i;
                     closestDistance = Vector3.Distance(myTransform.position, i.transform.position);
                 }
             }
-
             closestDistance = Vector3.Distance(myTransform.position, closestObject.transform.position);
-            return closestObject;
         }
-        return null;
+        return closestObject;
     }
 }

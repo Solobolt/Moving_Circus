@@ -22,6 +22,7 @@ public class TentDoor : MonoBehaviour {
             if(coll == coll.gameObject.GetComponent<CapsuleCollider>())
             {
                 coll.gameObject.transform.position = caravan.transform.position;
+                GameManager.Instance.nextDay();
             }
         }
     }
