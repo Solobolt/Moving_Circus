@@ -10,9 +10,14 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public GameObject[] posPrefabs;
 
+    private GameObject player;
+    private GameObject caravan;
+
 	// Use this for initialization
 	void Start () {
         setPositions();
+        player = GameObject.FindGameObjectWithTag("Player");
+        caravan = GameObject.FindGameObjectWithTag("Caravan");
 	}
 	
 	// Update is called once per frame
@@ -41,5 +46,11 @@ public class GameManager : SingletonBehaviour<GameManager>
                 posPrefabs[i].SetActive(true);
             }
         }
+    }
+
+    public void StartNextDay()
+    {
+        player.transform.position = caravan.transform.position;
+        nextDay();
     }
 }
