@@ -138,4 +138,15 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         CharacterCanTalk("Pierre", false);
     }
+
+    //Jo
+    public void JoTrueCanTalk()
+    {
+        CharacterCanTalk("Jo", true);
+    }
+
+    public void JoFalseCanTalk()
+    {
+        CharacterCanTalk("Jo", false);
+    }
 }
