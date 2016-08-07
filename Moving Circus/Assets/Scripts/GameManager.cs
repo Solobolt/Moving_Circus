@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using Fungus;
 
 public class GameManager : SingletonBehaviour<GameManager>
@@ -27,6 +28,11 @@ public class GameManager : SingletonBehaviour<GameManager>
 	void Update () {
 	
 	}
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void nextDay()
     {
@@ -104,6 +110,23 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", false);
                 break;
+
+            case 6:
+                CharacterCanTalk("Adolf", false);
+                CharacterCanTalk("Enrico", false);
+                CharacterCanTalk("Nala", false);
+                CharacterCanTalk("Pierre", false);
+                CharacterCanTalk("Jo", true);
+                break;
+
+            case 7:
+                CharacterCanTalk("Adolf", true);
+                CharacterCanTalk("Enrico", false);
+                CharacterCanTalk("Nala", false);
+                CharacterCanTalk("Pierre", false);
+                CharacterCanTalk("Jo", false);
+                break;
+
 
             default:
                 CharacterCanTalk("Adolf", false);
