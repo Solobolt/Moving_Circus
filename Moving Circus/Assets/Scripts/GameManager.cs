@@ -89,6 +89,22 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Jo", false);
                 break;
 
+            case 4:
+                CharacterCanTalk("Adolf", false);
+                CharacterCanTalk("Enrico", false);
+                CharacterCanTalk("Nala", false);
+                CharacterCanTalk("Pierre", false);
+                CharacterCanTalk("Jo", true);
+                break;
+
+            case 5:
+                CharacterCanTalk("Adolf", false);
+                CharacterCanTalk("Enrico", true);
+                CharacterCanTalk("Nala", false);
+                CharacterCanTalk("Pierre", false);
+                CharacterCanTalk("Jo", false);
+                break;
+
             default:
                 CharacterCanTalk("Adolf", false);
                 CharacterCanTalk("Enrico", false);
