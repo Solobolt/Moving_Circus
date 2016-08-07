@@ -35,9 +35,9 @@ public class UIManager : MonoBehaviour {
                 break;
 
             case FadeState.fadeIn:
-                if (t != 1.0f)
+                if (t != 0.0f)
                 {
-                    screenFadeImage.color = new Color(0, 0, 0, Mathf.Lerp(minA, maxA, t));
+                    screenFadeImage.color = new Color(0, 0, 0, Mathf.Pow(Mathf.Lerp(minA, maxA, t),2));
 
                     t -= fadeTime * Time.deltaTime;
 
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour {
             case FadeState.fadeOut:
                 if (t != 1.0f)
                 {
-                    screenFadeImage.color = new Color(0, 0, 0, Mathf.Lerp(minA, maxA, t));
+                    screenFadeImage.color = new Color(0, 0, 0, Mathf.Pow(Mathf.Lerp(minA, maxA, t), 2));
 
                     t += fadeTime * Time.deltaTime;
 

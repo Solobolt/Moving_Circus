@@ -13,6 +13,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     private GameObject player;
     private GameObject caravan;
 
+    public UIManager uiManager;
+
 	// Use this for initialization
 	void Start () {
         setPositions();
@@ -54,6 +56,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         player.transform.position = caravan.transform.position;
         nextDay();
+        uiManager.FadeScreenIn();
     }
 
     //Allows the player to talk to people when we intent them to
