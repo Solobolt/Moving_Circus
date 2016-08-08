@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
 
     private float minT = 0.0f;
     private float maxT = 1.0f;
+
     private enum FadeState
     {
         fadeIn,
