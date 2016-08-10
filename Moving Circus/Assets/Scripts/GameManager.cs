@@ -29,6 +29,18 @@ public class GameManager : SingletonBehaviour<GameManager>
 	
 	}
 
+    //Sets the player Controller script to disabled
+    public void DisablePlayerControls()
+    {
+        player.GetComponent<PlayerController>().enabled = false;
+    }
+
+    //Sets the player Controller script to enabled
+    public void EnablePlayerControls()
+    {
+        player.GetComponent<PlayerController>().enabled = true;
+    }
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -39,10 +51,17 @@ public class GameManager : SingletonBehaviour<GameManager>
         timePos++;
         flowchart.SetIntegerVariable("timePos",timePos);
 
+        //ends the game if using debugging cube
+        if(timePos > 7)
+        {
+            LoadMainMenu();
+        }
+
         setPositions();
         SetCanTalks();
     }
 
+    //Moves Characters
     void setPositions()
     {
         for (int i = 0; i < posPrefabs.Length; ++i)
@@ -58,11 +77,13 @@ public class GameManager : SingletonBehaviour<GameManager>
         }
     }
 
+    //Advances the day
     public void StartNextDay()
     {
         player.transform.position = caravan.transform.position;
         nextDay();
         uiManager.FadeScreenIn();
+        EnablePlayerControls();
     }
 
     //Allows the player to talk to people when we intent them to
@@ -144,6 +165,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         flowchart.SetBooleanVariable(characterName+"CanTalk", setTrueFalse);
     }
 
+    #region CanTalks
     //An unfortunate side effect of fungus
     //Adolf
     public void AdolfTrueCanTalk()
@@ -188,4 +210,5 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         CharacterCanTalk("Jo", false);
     }
+    #endregion
 }
