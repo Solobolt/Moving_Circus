@@ -46,6 +46,11 @@ public class GameManager : SingletonBehaviour<GameManager>
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void nextDay()
     {
         timePos++;
@@ -54,7 +59,8 @@ public class GameManager : SingletonBehaviour<GameManager>
         //ends the game if using debugging cube
         if(timePos > 7)
         {
-            LoadMainMenu();
+            //LoadMainMenu();
+            LoadCredits();
         }
 
         setPositions();
