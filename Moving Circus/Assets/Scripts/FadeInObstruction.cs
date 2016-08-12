@@ -88,7 +88,7 @@ public class FadeInObstruction : MonoBehaviour {
 		try{
 			direction = playerObject.transform.position - transform.position;
 		}catch(UnassignedReferenceException e){
-			//Debug.LogWarning(e.GetType()+": GameObject not assigned to playerObject variable in EasyFadeObstruction.");
+			Debug.LogWarning(e.GetType()+": GameObject not assigned to playerObject variable in EasyFadeObstruction.");
 			this.enabled = false;
 		}
 		distance = direction.magnitude - fadeRadius + fadeDistanceOffset;

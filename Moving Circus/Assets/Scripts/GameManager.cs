@@ -6,7 +6,6 @@ using Fungus;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
-
     public Flowchart flowchart;
     public int timePos = 1;
 
@@ -23,14 +22,12 @@ public class GameManager : SingletonBehaviour<GameManager>
         player = GameObject.FindGameObjectWithTag("Player");
         caravan = GameObject.FindGameObjectWithTag("Caravan");
         SetCanTalks();
-
-    }
+	}
 	
 	// Update is called once per frame
-	void Update ()
-    {
-
-    }
+	void Update () {
+	
+	}
 
     //Sets the player Controller script to disabled
     public void DisablePlayerControls()
@@ -49,11 +46,6 @@ public class GameManager : SingletonBehaviour<GameManager>
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void LoadCredits()
-    {
-        SceneManager.LoadScene("Credits");
-    }
-
     public void nextDay()
     {
         timePos++;
@@ -62,9 +54,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         //ends the game if using debugging cube
         if(timePos > 7)
         {
-            //LoadMainMenu();
-            LoadCredits();
-            print("Loading Credits");
+            LoadMainMenu();
         }
 
         setPositions();
