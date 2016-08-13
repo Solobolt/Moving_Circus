@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour {
 	private Transform myTransform;
 
 	//Holds speed the the player moves per frame (Will be scaled to time.delt time)
-	public float moveSpeed = 10.0f;
-    public float rotationSpeed = 360.0f;
+	private float moveSpeed = 7.0f;
+    private float rotationSpeed = 10.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -37,8 +37,8 @@ public class PlayerController : MonoBehaviour {
         myTransform.rotation = Quaternion.LookRotation(newDir);
     }
 
-	//handels player Movement
 	void MovePlayer()
+	//handels player Movement
 	{
         Vector3 tempPos = myTransform.position;
 
