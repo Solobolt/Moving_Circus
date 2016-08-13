@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
+    private Animator anim;
+
     //Holds list of NPCs near the player
     public List<GameObject> NPCList;
 
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		//Initialises transform
 		myTransform = this.transform;
+        anim = this.gameObject.GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -41,15 +44,17 @@ public class PlayerController : MonoBehaviour {
 	//handels player Movement
 	{
         Vector3 tempPos = myTransform.position;
-
+        anim.Play("idle");
 		if(Input.GetAxis("Horizontal") != 0)
 		{
             tempPos.x += Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+            anim.Play("standard_walk");
         }
 
         if (Input.GetAxis("Vertical") != 0)
         {
             tempPos.z += Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+            anim.Play("standard_walk");
         }
 
         myTransform.position = tempPos;
