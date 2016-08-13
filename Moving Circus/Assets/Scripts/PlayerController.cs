@@ -44,7 +44,13 @@ public class PlayerController : MonoBehaviour {
 	//handels player Movement
 	{
         Vector3 tempPos = myTransform.position;
-        anim.Play("idle");
+        
+
+        if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
+            anim.Play("idle");
+        }
+
 		if(Input.GetAxis("Horizontal") != 0)
 		{
             tempPos.x += Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
