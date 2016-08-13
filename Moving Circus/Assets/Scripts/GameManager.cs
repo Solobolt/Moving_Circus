@@ -105,6 +105,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", false);
                 break;
 
             case 2:
@@ -113,6 +114,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", true);
                 CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", false);
                 break;
 
             case 3:
@@ -121,6 +123,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", false);
                 break;
 
             case 4:
@@ -129,6 +132,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", true);
+                CharacterCanTalk("Troop", false);
                 break;
 
             case 5:
@@ -137,6 +141,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", false);
                 break;
 
             case 6:
@@ -145,6 +150,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", true);
+                CharacterCanTalk("Troop", false);
                 break;
 
             case 7:
@@ -153,6 +159,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", false);
                 break;
 
 
@@ -162,6 +169,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
                 CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", false);
                 break;
         }
     }
@@ -216,6 +224,17 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void JoFalseCanTalk()
     {
         CharacterCanTalk("Jo", false);
+    }
+
+    //Troop
+    public void TroopTrueCanTalk()
+    {
+        CharacterCanTalk("Troop", true);
+    }
+
+    public void TroopFalseCanTalk()
+    {
+        CharacterCanTalk("Troop", false);
     }
     #endregion
 }
