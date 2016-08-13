@@ -54,10 +54,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void nextDay()
     {
         timePos++;
-        flowchart.SetIntegerVariable("timePos",timePos);
+        flowchart.SetIntegerVariable("timePos", timePos);
 
         //ends the game if using debugging cube
-        if(timePos > 7)
+        if (timePos > 7)
         {
             //LoadMainMenu();
             LoadCredits();
@@ -65,6 +65,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
         setPositions();
         SetCanTalks();
+        player.gameObject.GetComponent<PlayerAnimationManager>().UnlockPlayerToIdle();
     }
 
     //Moves Characters

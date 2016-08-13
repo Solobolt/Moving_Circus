@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
-    private Animator anim;
-
     //Holds list of NPCs near the player
     public List<GameObject> NPCList;
 
@@ -13,14 +11,13 @@ public class PlayerController : MonoBehaviour {
 	private Transform myTransform;
 
 	//Holds speed the the player moves per frame (Will be scaled to time.delt time)
-	private float moveSpeed = 7.0f;
+	private float moveSpeed = 4.0f;
     private float rotationSpeed = 10.0f;
 
 	// Use this for initialization
 	void Start () {
 		//Initialises transform
 		myTransform = this.transform;
-        anim = this.gameObject.GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -46,21 +43,15 @@ public class PlayerController : MonoBehaviour {
         Vector3 tempPos = myTransform.position;
         
 
-        if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-        {
-            anim.Play("idle");
-        }
-
+        
 		if(Input.GetAxis("Horizontal") != 0)
 		{
             tempPos.x += Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-            anim.Play("standard_walk");
         }
 
         if (Input.GetAxis("Vertical") != 0)
         {
             tempPos.z += Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-            anim.Play("standard_walk");
         }
 
         myTransform.position = tempPos;
