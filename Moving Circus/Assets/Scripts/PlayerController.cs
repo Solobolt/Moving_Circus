@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
 	//Holds speed the the player moves per frame (Will be scaled to time.delt time)
 	public float moveSpeed = 10.0f;
+    public float rotationSpeed = 360.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,17 @@ public class PlayerController : MonoBehaviour {
         MovePlayer();
         CheckPlayerInteraction();
 	}
+
+    //Handles player turning
+    void TurnPlayer()
+    {
+        Vector3 targetPos = new Vector3(myTransform.position.x + Input.GetAxis("Horizontal"), myTransform.position.y, myTransform.position.z + Input.GetAxis("Vertical"));
+        Vector3 targetDir = targetPos - transform.position;
+        float step = rotationSpeed * Time.deltaTime;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+        Debug.DrawRay(transform.position, newDir, Color.red);
+        myTransform.rotation = Quaternion.LookRotation(newDir);
+    }
 
 	//handels player Movement
 	void MovePlayer()
@@ -41,6 +53,9 @@ public class PlayerController : MonoBehaviour {
         }
 
         myTransform.position = tempPos;
+
+        TurnPlayer();
+
     }
 
     //Checks distance to NPCs
