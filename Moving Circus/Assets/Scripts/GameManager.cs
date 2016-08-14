@@ -57,7 +57,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         flowchart.SetIntegerVariable("timePos", timePos);
 
         //ends the game if using debugging cube
-        if (timePos > 7)
+        if (timePos > 8)
         {
             //LoadMainMenu();
             LoadCredits();
@@ -137,6 +137,15 @@ public class GameManager : SingletonBehaviour<GameManager>
 
             case 5:
                 CharacterCanTalk("Adolf", false);
+                CharacterCanTalk("Enrico", false);
+                CharacterCanTalk("Nala", false);
+                CharacterCanTalk("Pierre", false);
+                CharacterCanTalk("Jo", false);
+                CharacterCanTalk("Troop", true);
+                break;
+
+            case 6:
+                CharacterCanTalk("Adolf", false);
                 CharacterCanTalk("Enrico", true);
                 CharacterCanTalk("Nala", false);
                 CharacterCanTalk("Pierre", false);
@@ -144,7 +153,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Troop", false);
                 break;
 
-            case 6:
+            case 7:
                 CharacterCanTalk("Adolf", false);
                 CharacterCanTalk("Enrico", false);
                 CharacterCanTalk("Nala", false);
@@ -153,7 +162,7 @@ public class GameManager : SingletonBehaviour<GameManager>
                 CharacterCanTalk("Troop", false);
                 break;
 
-            case 7:
+            case 8:
                 CharacterCanTalk("Adolf", true);
                 CharacterCanTalk("Enrico", false);
                 CharacterCanTalk("Nala", false);
