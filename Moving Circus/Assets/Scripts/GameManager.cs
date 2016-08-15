@@ -28,7 +28,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         caravan = GameObject.FindGameObjectWithTag("Caravan");
         SetCanTalks();
         CheckDate();
-        Destroy(dateToDestroy, 5f);
+        Destroy(dateToDestroy, 8f);
     }
 
     // Update is called once per frame
