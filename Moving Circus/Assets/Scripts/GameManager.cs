@@ -2,12 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Fungus;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
     public Flowchart flowchart;
     public int timePos = 1;
+    public Text dateText;
+    public GameObject date;
+    public GameObject dateToDestroy;
 
     public GameObject[] posPrefabs;
 
@@ -16,18 +20,23 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public UIManager uiManager;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         setPositions();
         player = GameObject.FindGameObjectWithTag("Player");
         caravan = GameObject.FindGameObjectWithTag("Caravan");
         SetCanTalks();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        CheckDate();
+        Destroy(dateToDestroy, 5f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+    }
 
     //Sets the player Controller script to disabled
     public void DisablePlayerControls()
@@ -53,6 +62,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public void nextDay()
     {
+        date.SetActive(false);
         timePos++;
         flowchart.SetIntegerVariable("timePos", timePos);
 
@@ -84,12 +94,50 @@ public class GameManager : SingletonBehaviour<GameManager>
         }
     }
 
+    void CheckDate()
+    {
+        switch (timePos)
+        {
+            case 7:
+                dateText.text = "September 02, 1945. ( seventeen Months later )";
+                break;
+
+            case 6:
+                dateText.text = "April 23, 1944. ( fifteen Months later )";
+                break;
+
+            case 5:
+                dateText.text = "January 01, 1943. ( sixteen Months later )";
+                break;
+
+            case 4:
+                dateText.text = "September 12, 1941. ( sixteen Months later )";
+                break;
+
+            case 3:
+                dateText.text = "May 07, 1940. ( eight Months later )";
+                break;
+
+            case 2:
+                dateText.text = "September 15, 1939. ( six Months later )";
+                break;
+
+            case 1:
+                dateText.text = "March 04, 1939";
+                break;
+
+        }
+    }
+
     //Advances the day
     public void StartNextDay()
     {
         player.transform.position = caravan.transform.position;
         nextDay();
         uiManager.FadeScreenIn();
+        CheckDate();
+        date.SetActive(true);
+        print(timePos);
         EnablePlayerControls();
     }
 
@@ -186,7 +234,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     //Sets an indevidual characters can talk state
     public void CharacterCanTalk(string characterName, bool setTrueFalse)
     {
-        flowchart.SetBooleanVariable(characterName+"CanTalk", setTrueFalse);
+        flowchart.SetBooleanVariable(characterName + "CanTalk", setTrueFalse);
     }
 
     #region CanTalks
