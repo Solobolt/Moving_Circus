@@ -76,4 +76,9 @@ public class UIManager : MonoBehaviour {
     {
         currentFadeState = FadeState.fadeIn;
     }
+
+    /*public IEnumerator ShowDate(int day)
+    {
+
+    }*/
 }
