@@ -12,7 +12,8 @@ public class Credits : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        StartCoroutine(ScrollCredits(6.0f));
+        Cursor.visible = false;
+        StartCoroutine(ScrollCredits(6.5f));
         camera = GetComponent<Camera>();
     
     }
