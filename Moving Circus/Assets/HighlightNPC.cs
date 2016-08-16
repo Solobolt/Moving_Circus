@@ -1,38 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using Fungus;
 
 public class HighlightNPC : MonoBehaviour {
 
-    public GameObject[] NPCList;
-
     public GameObject arrow;
+
+    public Flowchart flowchart;
+
+    private string characterName;
 
 	// Use this for initialization
 	void Start () {
-	
+        characterName = this.gameObject.name;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        checkFlowchart();
 	}
 
-    public void Highlight(string NPCname)
+    void checkFlowchart()
     {
-        foreach(GameObject NPC in NPCList)
+        if (flowchart.GetBooleanVariable(characterName + "CanTalk") == true)
         {
-            if(NPC.gameObject.name != NPCname)
-            {
-                if(NPC.gameObject.GetComponentInChildren<Canvas>() != null)
-                {
-                    Destroy(NPC.gameObject.GetComponentInChildren<Canvas>());
-                }
-            }
-            else
-            {
-                Instantiate(arrow,NPC.transform);
-            }
+            arrow.gameObject.SetActive(true);
+        }
+        else
+        {
+            arrow.gameObject.SetActive(false);
         }
     }
 }
