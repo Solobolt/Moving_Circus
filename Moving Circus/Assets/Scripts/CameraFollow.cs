@@ -8,8 +8,8 @@ public class CameraFollow : MonoBehaviour {
 
     #region CamOffsets
     private Vector3 camOffset = new Vector3(0,12.0f,-13.0f);
-    private Vector3 maxLimits = new Vector3(10.0f,12.0f,-13.0f);
-    private Vector3 minLimits = new Vector3(-20.0f,12.0f,-20.0f);
+    public Vector3 maxLimits = new Vector3(10.0f,12.0f,-13.0f);
+    public Vector3 minLimits = new Vector3(-20.0f,12.0f,-20.0f);
     #endregion;
 
     // Use this for initialization
