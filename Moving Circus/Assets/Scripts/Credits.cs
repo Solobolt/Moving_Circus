@@ -12,7 +12,7 @@ public class Credits : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        StartCoroutine(ScrollCredits(9.0f));
+        StartCoroutine(ScrollCredits(6.0f));
         camera = GetComponent<Camera>();
     
     }
@@ -32,7 +32,8 @@ public class Credits : MonoBehaviour
     {
         quotes.SetActive(true);
         yield return new WaitForSeconds(waitTime);
-        quotes.SetActive(false);
         credits.SetActive(true);
+        quotes.SetActive(false);
+        
     }
 }
