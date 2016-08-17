@@ -34,7 +34,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown("p"))
+        {
+            StartNextDay();
+        }
 
     }
 
@@ -132,12 +135,14 @@ public class GameManager : SingletonBehaviour<GameManager>
     //Advances the day
     public void StartNextDay()
     {
-        player.transform.position = caravan.transform.position;
+        
         nextDay();
         uiManager.FadeScreenIn();
         CheckDate();
         date.SetActive(true);
         print(timePos);
+        caravan = GameObject.FindGameObjectWithTag("Caravan");
+        player.transform.position = caravan.transform.position;
         EnablePlayerControls();
     }
 
