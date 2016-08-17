@@ -8,8 +8,8 @@ public class CameraFollow : MonoBehaviour {
 
     #region CamOffsets
     private Vector3 camOffset = new Vector3(0,12.0f,-13.0f);
-    public Vector3 maxLimits = new Vector3(10.0f,12.0f,-13.0f);
-    public Vector3 minLimits = new Vector3(-20.0f,12.0f,-20.0f);
+    private Vector3 maxLimits = new Vector3(10.0f,12.0f,-13.0f);
+    private Vector3 minLimits = new Vector3(-20.0f,12.0f,-55.0f);
     #endregion;
 
     // Use this for initialization
@@ -28,6 +28,10 @@ public class CameraFollow : MonoBehaviour {
     {
         Vector3 tempPos = (player.transform.position + camOffset);
 
+        if (GameManager.Instance.timePos != 1)
+        {
+            minLimits.z = -20.0f;
+        }
 
         if (tempPos.x >= maxLimits.x)
         {
@@ -39,7 +43,15 @@ public class CameraFollow : MonoBehaviour {
             tempPos.x = minLimits.x;
         }
 
-        tempPos.z = maxLimits.z;
+        if (tempPos.z >= maxLimits.z)
+        {
+            tempPos.z = maxLimits.z;
+        }
+
+        if (tempPos.z <= minLimits.z)
+        {
+            tempPos.z = minLimits.z;
+        }
 
 
         myTransfrom.position = tempPos;
